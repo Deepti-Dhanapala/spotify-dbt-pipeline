@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: spotify-dbt-pipeline
+    schema: raw
+    tables:
+      - name: tracks
+        description: "Raw Spotify tracks data loaded from Kaggle CSV"
+      - name: artists
+        description: "Raw Spotify artists data loaded from Kaggle CSV"

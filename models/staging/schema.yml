@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_tracks
+    description: "Cleaned and transformed Spotify tracks data"
+    columns:
+      - name: track_id
+        description: "Unique Spotify track identifier"
+        tests:
+          - unique
+          - not_null
+
+      - name: track_name
+        description: "Name of the track"
+        tests:
+          - not_null
+
+      - name: popularity
+        description: "Track popularity score 0-100"
+        tests:
+          - not_null
+
+  - name: stg_artists
+    description: "Cleaned and transformed Spotify artists data"
+    columns:
+      - name: artist_id
+        description: "Unique Spotify artist identifier"
+        tests:
+          - unique
+          - not_null
+
+      - name: artist_name
+        description: "Name of the artist"
+        tests:
+          - not_null
