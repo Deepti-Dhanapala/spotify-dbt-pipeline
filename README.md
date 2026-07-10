@@ -1,15 +1,37 @@
-Welcome to your new dbt project!
+# Spotify dbt Pipeline
 
-### Using the starter project
+An end-to-end data transformation pipeline built with dbt and BigQuery,
+analyzing 400,000+ Spotify tracks and 1.1M+ artists.
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Tech Stack
+- **dbt** — data transformation and modeling
+- **BigQuery** — cloud data warehouse
+- **SQL** — transformation logic
+- **Python** — data preparation
 
+## Pipeline Architecture
+Raw Spotify Data → Staging Models → Mart Models → Analysis Ready
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Models
+
+### Staging
+- `stg_tracks` — cleans and standardizes raw track data
+- `stg_artists` — cleans and standardizes raw artist data
+
+### Marts
+- `mart_top_artists` — joins tracks and artists,
+   aggregates popularity metrics per artist
+- `mart_audio_features` — categorizes songs by mood,
+   energy level, tempo, and popularity bucket
+
+## Data Quality Tests
+7 automated tests covering:
+- Unique track and artist IDs
+- Not null checks on critical columns
+
+## Key Transformations
+- Converted duration from milliseconds to minutes
+- Cleaned bracket/quote formatting from array columns
+- Cast all columns to correct data types
+- Created business-friendly categories
+  (mood, energy level, popularity bucket)
