@@ -6,8 +6,6 @@ and Looker Studio, analyzing 400,000+ Spotify tracks and 1.1M+ artists.
 ## Live Dashboard
 📊 [Click here to view the interactive Spotify Analytics Dashboard](https://datastudio.google.com/u/2/reporting/a4ae0dbc-73d2-4105-a22d-0fbdb36415ee/page/f4b3F)
 
-![Dashboard Preview](dashboard.png)
-
 ## Tech Stack
 - **dbt Core** — data transformation and modeling
 - **BigQuery** — cloud data warehouse (Google Cloud)
