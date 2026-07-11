@@ -1,11 +1,17 @@
 # Spotify dbt Pipeline
 
-An end-to-end data transformation pipeline built with dbt and BigQuery,
-analyzing 400,000+ Spotify tracks and 1.1M+ artists.
+An end-to-end data transformation pipeline built with dbt, BigQuery,
+and Looker Studio, analyzing 400,000+ Spotify tracks and 1.1M+ artists.
+
+## Live Dashboard
+📊 [Click here to view the interactive Spotify Analytics Dashboard](https://datastudio.google.com/u/2/reporting/a4ae0dbc-73d2-4105-a22d-0fbdb36415ee/page/f4b3F)
+
+![Dashboard Preview](dashboard.png)
 
 ## Tech Stack
 - **dbt Core** — data transformation and modeling
 - **BigQuery** — cloud data warehouse (Google Cloud)
+- **Looker Studio** — interactive dashboard and data visualization
 - **SQL** — transformation logic
 - **Python** — data preparation and sampling
 
@@ -15,9 +21,11 @@ Raw Spotify Data (CSV)
 ↓
 BigQuery (cloud warehouse)
 ↓
-Staging Models (clean + standardize)
+dbt Staging Models (clean + standardize)
 ↓
-Mart Models (business insights)
+dbt Mart Models (business insights)
+↓
+Looker Studio Dashboard (visualize + explore)
 
 ## Models
 
@@ -32,6 +40,15 @@ Mart Models (business insights)
 - `mart_audio_features` — categorizes songs by mood, energy level,
   tempo, and popularity bucket for business analysis
 
+## Dashboard Features
+- **Total Tracks Analyzed** — scorecard showing 369,453 tracks
+- **Track Distribution by Popularity** — bar chart showing how tracks
+  are distributed across popularity buckets
+- **Top 10 Artists by Popularity** — bar chart of most popular artists
+- **Avg Danceability by Popularity** — proves the danceability trend
+- **Top 10 Most Popular Songs** — table with track name, artist, popularity
+- **Interactive filters** — filter by energy level and mood
+
 ## Data Quality Tests
 7 automated tests covering:
 - Unique track IDs (no duplicates)
@@ -42,7 +59,7 @@ Mart Models (business insights)
 ## Key Transformations
 - Converted duration from milliseconds to minutes
 - Cleaned bracket/quote formatting from array columns using regex
-- Cast all VARCHAR columns to correct data types (INT64, FLOAT64)
+- Cast all columns to correct data types (INT64, FLOAT64)
 - Created business-friendly categories (mood, energy level,
   popularity bucket, tempo category)
 - Filtered null records for data quality
